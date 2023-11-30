@@ -1,13 +1,13 @@
 "use client";
 import Header from "@/components/layout/Header";
-import EmployeeView from "@/pages/View";
+import CreateEmployee from "@/pages/createEmployee";
 import { Box } from "@mui/material";
 
-export default function Employee() {
+export default function edit() {
   return (
     <Box>
       <Header/>
-      <EmployeeView />
+      <CreateEmployee />
     </Box>
   );
 }
