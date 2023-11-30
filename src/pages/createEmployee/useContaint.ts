@@ -18,8 +18,14 @@ const useContaint = () => {
                 profile_image: data.data.profile_image
             })
         }
-        catch (e) {
-            console.log(e)
+        catch (e: any) {
+            openDialog({
+                isOpen: true,
+                text: e.response.data.message,
+                iconType: "error",
+                CancelText: "Ok",
+            });
+
         }
     }
 
@@ -38,10 +44,10 @@ const useContaint = () => {
                 CancelText: "Ok",
             });
         }
-        catch (e) {
+        catch (e: any) {
             openDialog({
                 isOpen: true,
-                text: "Someting went Please Try Again",
+                text: e.response.data.message,
                 iconType: "error",
                 CancelText: "Ok",
             });
@@ -63,10 +69,10 @@ const useContaint = () => {
                 CancelText: "Ok",
             });
         }
-        catch (e) {
+        catch (e: any) {
             openDialog({
                 isOpen: true,
-                text: "Someting went Please Try Again",
+                text: e.response.data.message,
                 iconType: "error",
                 CancelText: "Ok",
             });
