@@ -6,7 +6,7 @@ import { useEffect, useMemo } from 'react';
 
 const useContaint = () => {
     const { employees, setEmployees } = useEmployeeStore();
-    const { openDialog } = useDialogStore();
+    const { openDialog, closeDialog } = useDialogStore();
     const params = useParams()
     const getemployeeDetails = async (id: number) => {
         try {
@@ -106,7 +106,8 @@ const useContaint = () => {
                 employee_salary: '',
                 employee_age: '',
                 profile_image: null
-            })
+            });
+            closeDialog();
         }
     }, [])
 
