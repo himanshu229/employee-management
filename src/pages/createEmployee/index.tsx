@@ -116,6 +116,10 @@ const CreateEmployee: FunctionComponent = () => {
                   profile_image: e.target?.files[0],
                 });
               } else {
+                setEmployees({
+                  ...employees,
+                  profile_image: "",
+                });
                 setErrorEmployees({
                   ...errorEmployees,
                   imageError: `${t.rich("app_field_image_error")}`,
