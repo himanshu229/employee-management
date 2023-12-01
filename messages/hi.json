@@ -1,0 +1,24 @@
+{
+  "Index": {
+    "app_title": "कर्मचारी विवरण",
+    "app_button_back" :"वापस आएँ",
+    "app_button_employ": "कर्मचारी जोड़ें",
+    "app_button_cancel": "रद्द करना",
+    "app_button_confirm": "कृपया आगे बढ़ें",
+    "app_button_ok": "ठीक है",
+    "app_button_save": "सेव करे",
+    "app_button_update": "अपडेट करे",
+    "app_message_update": "कर्मचारी विवरण सफलतापूर्वक अपडेट किया गया",
+    "app_message_create": "कर्मचारी विवरण सफलतापूर्वक बनाया गया",
+    "app_message_delete": "क्या आप आश्वस्त है कि आपको डिलीट करना है?",
+    "app_error_1": "डेटा लाने में कुछ गड़बड़ी हुई. कृपया कुछ समय बाद पुनः प्रयास करें.",
+    "app_error_2":"कुछ गलत हो गया कृपया पुनः प्रयास करें।",
+    "app_field_name": "नाम",
+    "app_field_age": "आयु",
+    "app_field_salary": "वेतन",
+    "app_field_name_error": "नाम फ़ील्ड आवश्यक है",
+    "app_field_age_error": "आयु फ़ील्ड आवश्यक हैं",
+    "app_field_salary_error": "वेतन फ़ील्ड आवश्यक हैं",
+    "app_field_image_error": "छवि पीएनजी, जेपीईजी, जेपीजी होनी चाहिए"
+  }
+}

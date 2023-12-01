@@ -1,3 +1,4 @@
+import { useHelper } from "@/helper/useHelper";
 import { BorderColor, DeleteOutlineOutlined } from "@mui/icons-material";
 import {
   Avatar,
@@ -8,13 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
-import React from "react";
 import useContaint from "./useContaint";
 
 const EmployeeView = () => {
   const router = useRouter();
+  const { getLocalizedURL } = useHelper();
   const { employeeData, employeeDelete, isLoading } = useContaint();
-
   return (
     <Container maxWidth="sm">
       <div className="mt-[100px]">
@@ -55,7 +55,9 @@ const EmployeeView = () => {
                     </div>
                     <div className="col-span-2 flex gap-[20px]">
                       <BorderColor
-                        onClick={() => router.push("/edit/" + ele.id)}
+                        onClick={() =>
+                          router.push(getLocalizedURL("/edit/" + ele.id))
+                        }
                         style={{ cursor: "pointer", color: "green" }}
                       />
                       <DeleteOutlineOutlined

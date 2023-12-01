@@ -1,0 +1,24 @@
+{
+  "Index": {
+    "app_title": "Employee Details",
+    "app_button_back": "Back",
+    "app_button_employ": "Add Employee",
+    "app_button_cancel": "Cancel",
+    "app_button_confirm": "Confirm",
+    "app_button_ok": "Ok",
+    "app_button_save": "Save",
+    "app_button_update": "Update",
+    "app_message_update": "Employee Details Updated Successfully",
+    "app_message_create": "Employee Details Created Successfully",
+    "app_message_delete": "Are you sure You want to delete?",
+    "app_error_1": "Something went wrong in fetching the Data. Please try again after some time.",
+    "app_error_2": "Something goes wrong please try again.",
+    "app_field_name": "Name",
+    "app_field_age": "Age",
+    "app_field_salary": "Salary",
+    "app_field_name_error": "Name fields are required.",
+    "app_field_age_error": "Age fields are required",
+    "app_field_salary_error": "Salary fields are required",
+    "app_field_image_error": "Image should be PNG, jpeg, jpg"
+  }
+}

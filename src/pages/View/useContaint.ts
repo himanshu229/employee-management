@@ -1,6 +1,8 @@
 import useDialogStore from "@/store/Alert";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+
 type EmployeeType = {
   id: number;
   employee_name: string;
@@ -8,10 +10,12 @@ type EmployeeType = {
   employee_age: number;
   profile_image: string;
 };
+
 const useContaint = () => {
   const [employeeData, setEmployeeData] = useState<EmployeeType[]>();
   const { openDialog, closeDialog } = useDialogStore();
   const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const t = useTranslations("Index");
   const fetchEmploye = async () => {
     setIsLoading(true);
     try {
@@ -24,9 +28,9 @@ const useContaint = () => {
       setIsLoading(false);
       openDialog({
         isOpen: true,
-        text: e.response.data.message,
+        text: `${t.rich("app_error_1")}`,
         iconType: "error",
-        CancelText: "Ok",
+        CancelText: `${t.rich("app_button_ok")}`,
       });
     }
   };
@@ -47,9 +51,9 @@ const useContaint = () => {
     } catch (e: any) {
       openDialog({
         isOpen: true,
-        text: e.response.data.message,
+        text: `${t.rich("app_error_2")}`,
         iconType: "error",
-        CancelText: "Ok",
+        CancelText: `${t.rich("app_button_ok")}`,
       });
     }
   };
@@ -57,10 +61,10 @@ const useContaint = () => {
   const employeeDelete = (details: EmployeeType) => {
     openDialog({
       isOpen: true,
-      text: `Are you sure You want to delete ${details.employee_name}`,
+      text: `${t.rich("app_message_delete")}`,
       iconType: "delete",
-      CancelText: "Cancel",
-      ConfirmText: "Confirm",
+      CancelText: `${t.rich("app_button_cancel")}`,
+      ConfirmText: `${t.rich("app_button_confirm")}`,
       handleConfirm: () => {
         confirmDelete(details.id);
       },

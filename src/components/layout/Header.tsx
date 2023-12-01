@@ -1,10 +1,19 @@
+"use client";
+
+import { useHelper } from "@/helper/useHelper";
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
-import { usePathname, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 const Header: FunctionComponent = () => {
-  const pathName = usePathname();
-  const route = useRouter()
+  const { getLocalizedURL, isHeaderBackButton } = useHelper();
+
+  const route = useRouter();
+  const t = useTranslations("Index");
+  const handleRoute = (url: string) => {
+    route.push(getLocalizedURL(url));
+  };
   return (
     <AppBar position="fixed">
       <Toolbar
@@ -17,20 +26,20 @@ const Header: FunctionComponent = () => {
           component="div"
           style={{ marginBottom: 0 }}
         >
-          Employee Details
+          {t.rich("app_title")}
         </Typography>
 
         <Box style={{ display: "flex", gap: 20 }}>
-          {pathName === "/" ? (
+          {isHeaderBackButton ? (
             <Typography
               gutterBottom
               variant="body2"
               component="div"
               className="cursor-pointer"
               style={{ marginBottom: 0 }}
-              onClick={()=>route.push("/create")}
+              onClick={() => handleRoute("/create")}
             >
-              Add Employee
+              {t.rich("app_button_employ")}
             </Typography>
           ) : (
             <Typography
@@ -39,9 +48,9 @@ const Header: FunctionComponent = () => {
               component="div"
               className="cursor-pointer"
               style={{ marginBottom: 0 }}
-              onClick={()=>route.push("/")}
+              onClick={() => handleRoute("/")}
             >
-              Back
+              {t.rich("app_button_back")}
             </Typography>
           )}
         </Box>

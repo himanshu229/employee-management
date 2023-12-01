@@ -2,12 +2,13 @@ import useEmployeeStore from "@/store/Employee";
 import { Box, Button, Container, TextField } from "@mui/material";
 import { ChangeEvent, FunctionComponent, useMemo } from "react";
 import useContaint from "./useContaint";
+import { useTranslations } from "next-intl";
 
 const CreateEmployee: FunctionComponent = () => {
   const { handleSubmit, isButtonDisable, isEdit } = useContaint();
   const { employees, errorEmployees, setEmployees, setErrorEmployees } =
     useEmployeeStore();
-
+  const t = useTranslations("Index");
   const handleNumber = (value: string, key: string) => {
     setEmployees({
       ...employees,
@@ -35,7 +36,7 @@ const CreateEmployee: FunctionComponent = () => {
         <TextField
           fullWidth
           value={employees.employee_name}
-          label="Name"
+          label={t.rich("app_field_name")}
           id="fullWidth"
           error={!!errorEmployees.employee_name}
           helperText={errorEmployees.employee_name}
@@ -43,7 +44,7 @@ const CreateEmployee: FunctionComponent = () => {
             handleError(
               e.target.value,
               "employee_name",
-              "Please Provide the Name"
+              `${t.rich("app_field_name_error")}`
             )
           }
           onChange={(e) => {
@@ -56,7 +57,7 @@ const CreateEmployee: FunctionComponent = () => {
         />
         <TextField
           fullWidth
-          label="Age"
+          label={t.rich("app_field_age")}
           id="fullWidth"
           type="number"
           error={!!errorEmployees.employee_age}
@@ -66,7 +67,7 @@ const CreateEmployee: FunctionComponent = () => {
             handleError(
               e.target.value,
               "employee_age",
-              "Please Provide the Age"
+              `${t.rich("app_field_age_error")}`
             )
           }
           onChange={(e) => {
@@ -76,7 +77,7 @@ const CreateEmployee: FunctionComponent = () => {
         />
         <TextField
           fullWidth
-          label="Salary"
+          label={t.rich("app_field_salary")}
           id="fullWidth"
           type="number"
           error={!!errorEmployees.employee_salary}
@@ -86,7 +87,7 @@ const CreateEmployee: FunctionComponent = () => {
             handleError(
               e.target.value,
               "employee_salary",
-              "Please Provide the Salary"
+              `${t.rich("app_field_salary_error")}`
             )
           }
           onChange={(e) => {
@@ -117,7 +118,7 @@ const CreateEmployee: FunctionComponent = () => {
               } else {
                 setErrorEmployees({
                   ...errorEmployees,
-                  imageError: "Image should be Png, jpeg, jpg",
+                  imageError: `${t.rich("app_field_image_error")}`,
                 });
               }
             }
@@ -128,7 +129,7 @@ const CreateEmployee: FunctionComponent = () => {
           variant="outlined"
           onClick={() => handleSubmit()}
         >
-          {isEdit?"Update":"Save"}
+          {isEdit ? t.rich("app_button_update") : t.rich("app_button_save")}
         </Button>
       </Box>
     </Container>

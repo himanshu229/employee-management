@@ -40,7 +40,7 @@ const CustomAlert: FunctionComponent = () => {
               <DeleteIcon className="text-3xl text-[white]" />
             )}
           </div>
-          <div className="mt-3">
+          <div className="mt-3 w-[355px]">
             <Typography
               gutterBottom
               variant="h6"
