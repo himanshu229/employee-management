@@ -1,5 +1,4 @@
-// CombinedStore.js
-import create from 'zustand';
+import { create } from 'zustand'
 import useEmployeeStore, { EmployeeStore } from './Employee';
 import useDialogStore, { DialogStore } from './Alert';
 
