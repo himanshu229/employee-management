@@ -118,7 +118,7 @@ const CreateEmployee: FunctionComponent = () => {
               } else {
                 setEmployees({
                   ...employees,
-                  profile_image: "",
+                  profile_image: null,
                 });
                 setErrorEmployees({
                   ...errorEmployees,
